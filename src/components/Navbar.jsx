@@ -1,12 +1,17 @@
 import SocialLinks from "./SocialLinks";
 import PageLinks from "./PageLinks";
 import logo from "../assets/logo-removebg.png";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [isToggled, setToggle] = useState(false);
+  const handleToggle = () => {
+    setToggle(!isToggled);
+  };
   return (
     <nav className="navbar">
       <div className="container navbar-flex">
-        <a href="./index.html" className="logo">
+        <a href="#home" className="logo">
           <img src={logo} alt="" />
         </a>
         <div className="main-menu">
@@ -18,11 +23,11 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="mobile-menu">
-          <div className="mobile-menu-toggle">
+          <div className="mobile-menu-toggle" onClick={handleToggle}>
             <i className="fa-solid fa-bars"></i>
           </div>
           <div className="mobile-menu-items">
-            <ul className="mobile-menu-list">
+            <ul className={`mobile-menu-list ${isToggled ? "active" : ""}`}>
               <PageLinks />
             </ul>
           </div>
