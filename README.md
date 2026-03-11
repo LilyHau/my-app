@@ -17,5 +17,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ## deply to github page add next 2 lines inside package.json (scripts)
 
+```json
 "predeploy": "npm run build",
 "deploy": "gh-pages -d dist"
+```
